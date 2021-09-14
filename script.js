@@ -43,7 +43,7 @@ window.onload = function () {
     //ctx.drawImage(image, 0, 0);*/
 
 
-    canvas.setAttribute('width', window.innerWidth - 400);
+    canvas.setAttribute('width', window.innerWidth - 420);
     canvas.setAttribute('height', window.innerHeight - 10);
 
     getInputValues();
