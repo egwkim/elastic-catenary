@@ -6,22 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    <script src="physics.js"></script>
 </head>
 
-<body style="margin: 0px;">
+<body>
     <!--
         <img src="image.jpg" id="image" hidden="true">
     -->
     <div style="float: left;">
-        <canvas id="canvas" style="margin-top: 10px; margin-left: 10px; display: block;"></canvas>
+        <canvas id="canvas"></canvas>
     </div>
 
     <div style="float: left;">
         <div>
             total number of points<br>
-            <input type="range" id="pointCnt-range" min="3" max="101" value="50"
+            <input type="range" id="point-cnt-range" min="3" max="101" value="50"
                 oninput="this.nextElementSibling.value = this.value" onchange="pointCnt=this.value;reset();">
-            <input type="number" id="pointCnt" min="3" max="101" value="50"
+            <input type="number" id="point-cnt" min="3" max="101" value="50"
                 oninput="this.previousElementSibling.value = this.value" onchange="pointCnt=this.value;reset();">
         </div>
 
@@ -83,22 +86,22 @@
 
         <div>
             toggleStretchOnly
-            <input type="checkbox" id="toggleStretchOnly" onchange="toggleStretchOnly = this.checked">
+            <input type="checkbox" id="toggle-stretchOnly" onchange="toggleStretchOnly = this.checked">
         </div>
 
         <div>
             toggleLine
-            <input type="checkbox" id="toggleLine" checked onchange="toggleLine = this.checked">
+            <input type="checkbox" id="toggle-line" checked onchange="toggleLine = this.checked">
         </div>
 
         <div>
             toggleCircle
-            <input type="checkbox" id="toggleCircle" checked onchange="toggleCircle = this.checked">
+            <input type="checkbox" id="toggle-circle" checked onchange="toggleCircle = this.checked">
         </div>
 
         <div>
             toggleMovement
-            <input type="checkbox" id="toggleMovement" checked onchange="
+            <input type="checkbox" id="toggle-movement" checked onchange="
             if(this.checked) {
                 this.nextElementSibling.style.display = '';
             } else {
@@ -115,8 +118,10 @@
         <div>
             <br>
             <button onclick="getInputValues();reset();">reset</button>
-            <button onclick="clearInterval(interv); this.nextElementSibling.style.display=''; this.style.display='none';">stop</button>
-            <button onclick="loop(); this.previousElementSibling.style.display=''; this.style.display='none';" style="display: none;">resume</button>
+            <button id="pause"
+                onclick="clearInterval(interv); this.nextElementSibling.style.display=''; this.style.display='none';">pause</button>
+            <button id="resume" onclick="loop(); this.previousElementSibling.style.display=''; this.style.display='none';"
+                style="display: none;">resume</button>
         </div>
 
         <div>
@@ -125,7 +130,7 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="init.js"></script>
 </body>
 
 </html>
