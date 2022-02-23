@@ -1,7 +1,9 @@
 body {
-    margin: 0px;
+  margin: 0px;
 }
 
 canvas {
-    margin-top: 10px; margin-left: 10px; display: block;
+  margin-top: 10px;
+  margin-left: 10px;
+  display: block;
 }

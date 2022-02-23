@@ -24,7 +24,7 @@ class Point {
   }
 
   static applyElasticForce(a, b) {
-    let F = k * (Point.distance(a, b) - initLen);
+    let F = springConstant * (Point.distance(a, b) - initLen);
     if (toggleStretchOnly) F = Math.max(F, 0);
 
     let Fx = Point.cos(a, b) * F;
@@ -62,7 +62,7 @@ class Point {
   }
 
   applyGravity() {
-    this.applyForce(0, this.m * g);
+    this.applyForce(0, this.m * gravityConstant);
   }
 }
 
