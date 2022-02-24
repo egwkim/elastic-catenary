@@ -16,86 +16,78 @@
     <canvas id="canvas"></canvas>
   </div>
 
-  <div style="float: left;" id="control-panel">
+  <div id="control-panel">
     <div id="settings">
 
       <div>
         total number of points<br>
-        <input type="range" id="point-cnt-range" min="3" max="101" value="50"
-          oninput="this.nextElementSibling.value = this.value" onchange="pointCnt=this.value;reset();">
-        <input type="number" id="point-cnt" min="3" max="101" value="50"
-          oninput="this.previousElementSibling.value = this.value" onchange="pointCnt=this.value;reset();">
+        <input type="range" id="point-cnt-range" class="reset" min="3" max="101" value="50"
+          oninput="this.nextElementSibling.value = this.value">
+        <input type="number" id="point-cnt" class="reset" min="3" max="101" value="50"
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
         initial distance between adjacent points<br>
-        <input type="range" id="distance-range" step="0.1" min="0.1" max="100" value="15"
-          oninput="this.nextElementSibling.value = this.value" onchange="pointDistance=this.value;reset();">
-        <input type="number" id="distance" step="o.1" min="0.1" max="100" value="15"
-          oninput="this.previousElementSibling.value = this.value" onchange="pointDistance=this.value;reset();">
+        <input type="range" id="distance-range" class="reset" step="0.1" min="0.1" max="100" value="15"
+          oninput="this.nextElementSibling.value = this.value">
+        <input type="number" id="distance" class="reset" step="0.1" min="0.1" max="100" value="15"
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
         spring constant<br>
-        <input type="range" id="k-range" value="1" step="0.01" min="0.01" max="10"
-          oninput="this.nextElementSibling.value = this.value" onchange="k=this.value;">
-        <input type="number" id="k" value="1" step="0.01" min="0.01" max="10"
-          oninput="this.previousElementSibling.value = this.value" onchange="k=this.value;">
+        <input type="range" id="spring-constant-range" value="1" step="0.01" min="0.01" max="10"
+          oninput="this.nextElementSibling.value = this.value">
+        <input type="number" id="spring-constant" value="1" step="0.01" min="0.01" max="10"
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
         distance between two points when no force is applied<br>
         <input type="range" id="initLen-range" value="5" step="0.1" min="0" max="100"
-          oninput="this.nextElementSibling.value = this.value" onchange="initLen=this.value;">
+          oninput="this.nextElementSibling.value = this.value">
         <input type="number" id="initLen" value="5" step="0.1" min="0" max="100"
-          oninput="this.previousElementSibling.value = this.value" onchange="initLen=this.value;">
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
         gravity constant<br>
-        <input type="range" id="g-range" value="2" step="0.01" min="0" max="10"
-          oninput="this.nextElementSibling.value = this.value" onchange="g=this.value;">
-        <input type="number" id="g" value="2" step="0.01" min="0" max="10"
-          oninput="this.previousElementSibling.value = this.value" onchange="g=this.value;">
+        <input type="range" id="gravity-constant-range" value="2" step="0.01" min="0" max="10"
+          oninput="this.nextElementSibling.value = this.value">
+        <input type="number" id="gravity-constant" value="2" step="0.01" min="0" max="10"
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
         friction constant<br>
         <input type="range" id="friction-range" value="0.2" step="0.01" min="0" max="1"
-          oninput="this.nextElementSibling.value = this.value" onchange="friction=this.value;">
+          oninput="this.nextElementSibling.value = this.value">
         <input type="number" id="friction" value="0.2" step="0.01" min="0" max="1"
-          oninput="this.previousElementSibling.value = this.value" onchange="friction=this.value;">
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
-        tick(ms)<br>
-        <input type="range" id="tick-range" value="0" step="1" min="0" max="1000"
-          oninput="this.nextElementSibling.value = this.value" onchange="tick=this.value; loop();">
-        <input type="number" id="tick" value="0" step="1" min="0" max="1000"
-          oninput="this.previousElementSibling.value = this.value" onchange="tick=this.value; loop();">
-      </div>
-
-      <div>
-        dt per tick<br>
-        <input type="range" id="dt-range" value="1" step="0.01" min="0" max="1"
-          oninput="this.nextElementSibling.value = this.value" onchange="dt=this.value;">
-        <input type="number" id="dt" value="1" step="0.01" min="0" max="1"
-          oninput="this.previousElementSibling.value = this.value" onchange="dt=this.value;">
+        dt<br>
+        <input type="range" id="dt-range" value="0.5" step="0.01" min="0" max="1"
+          oninput="this.nextElementSibling.value = this.value">
+        <input type="number" id="dt" value="0.5" step="0.01" min="0" max="1"
+          oninput="this.previousElementSibling.value = this.value">
       </div>
 
       <div>
         toggleStretchOnly
-        <input type="checkbox" id="toggle-stretchOnly" onchange="toggleStretchOnly = this.checked">
+        <input type="checkbox" id="toggle-stretch-only">
       </div>
 
       <div>
         toggleLine
-        <input type="checkbox" id="toggle-line" checked onchange="toggleLine = this.checked">
+        <input type="checkbox" id="toggle-line" checked>
       </div>
 
       <div>
         toggleCircle
-        <input type="checkbox" id="toggle-circle" checked onchange="toggleCircle = this.checked">
+        <input type="checkbox" id="toggle-circle" checked>
       </div>
 
       <div>
@@ -117,7 +109,7 @@
 
     <div>
       <br>
-      <button onclick="getInputValues();reset();">reset</button>
+      <button onclick="reset();">reset</button>
       <button id="pause"
         onclick="clearInterval(interv); this.nextElementSibling.style.display=''; this.style.display='none';">pause</button>
       <button id="resume" onclick="loop(); this.previousElementSibling.style.display=''; this.style.display='none';"

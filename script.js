@@ -1,20 +1,15 @@
 function init() {
-  for (let i = 0; i < pointCnt; i++) {
-    points[i] = new Point(i * pointDistance + 5, 5);
-  }
-
-  points[0].m = Infinity;
-  points[pointCnt - 1].m = Infinity;
+  physicsInit();
+  getInputValues();
 }
 
 function loop() {
-  if (interv) clearInterval(interv);
   interv = setInterval(function () {
-    physicsUpdate();
-
     if (updateSettings) {
       getInputValues();
     }
+
+    physicsUpdate();
 
     clearFrame();
     let movement = 0;
@@ -36,10 +31,11 @@ function loop() {
       movementSumP.innerText = movement.toFixed(6);
       movementAvgP.innerText = (movement / pointCnt).toFixed(6);
     }
-  }, tick);
+  }, 0);
 }
 
 function reset() {
+  if (interv) clearInterval(interv);
   init();
   loop();
   pauseBtn.style.display = '';
@@ -47,19 +43,18 @@ function reset() {
 }
 
 function clearFrame() {
-  ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
+  ctx.clearRect(0, 0, canvas.clientWidth + 1, canvas.clientHeight + 1);
 }
 
 function getInputValues() {
   pointCnt = Number(document.getElementById('point-cnt').value);
   pointDistance = Number(document.getElementById('distance').value);
-  springConstant = Number(document.getElementById('k').value);
-  gravityConstant = Number(document.getElementById('g').value);
+  springConstant = Number(document.getElementById('spring-constant').value);
+  gravityConstant = Number(document.getElementById('gravity-constant').value);
   initLen = Number(document.getElementById('initLen').value);
   friction = Number(document.getElementById('friction').value);
-  tick = Number(document.getElementById('tick').value);
   dt = Number(document.getElementById('dt').value);
-  toggleStretchOnly = document.getElementById('toggle-stretchOnly').checked;
+  toggleStretchOnly = document.getElementById('toggle-stretch-only').checked;
   toggleCircle = document.getElementById('toggle-circle').checked;
   toggleLine = document.getElementById('toggle-line').checked;
   toggleMovement = document.getElementById('toggle-movement').checked;

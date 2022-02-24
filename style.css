@@ -7,3 +7,8 @@ canvas {
   margin-left: 10px;
   display: block;
 }
+
+#control-panel {
+  float: left;
+  margin-top: 10px;
+}

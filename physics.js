@@ -66,7 +66,15 @@ class Point {
   }
 }
 
-function physicsInit() {}
+function physicsInit() {
+  points=[];
+  for (let i = 0; i < pointCnt; i++) {
+    points[i] = new Point(i * pointDistance + 5, 5);
+  }
+
+  points[0].m = Infinity;
+  points[pointCnt - 1].m = Infinity;
+}
 
 function physicsUpdate() {
   for (let i = 0; i < pointCnt - 1; i++) {

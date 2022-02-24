@@ -6,17 +6,18 @@ const movementSumP = document.getElementById('movement-sum');
 const pauseBtn = document.getElementById('pause');
 const resumeBtn = document.getElementById('resume');
 
-canvas.setAttribute('width', window.innerWidth - 420);
-canvas.setAttribute('height', window.innerHeight - 10);
+function resizeCvs() {
+  canvas.setAttribute('width', window.innerWidth - 420);
+  canvas.setAttribute('height', window.innerHeight - 10);
+}
+
+window.onresize = resizeCvs;
 
 let points = [];
 let interv = null;
 
 /* TODO Update logic to init settings.
  * Set values through init.js and applie them to html control panel
- */
-
-/* TODO Save settings to one dictonary variable.
  */
 
 // Physical constants
@@ -28,7 +29,6 @@ let friction = 0.2;
 let toggleStretchOnly = false;
 
 // Time constants
-let tick = 0; // Interval timeout
 let dt = 0; // Timestep used in physics.js
 
 // Points
@@ -44,4 +44,25 @@ let movement; // Sum of the velocities
 
 let updateSettings = true;
 
+const settingInputs = document.querySelectorAll('#settings > div > input');
+
+settingInputs.forEach((item) => {
+  if (item.classList.contains('reset')) {
+    item.addEventListener('change', () => {
+      reset();
+    });
+  } else {
+    item.addEventListener('change', () => {
+      updateSettings = true;
+    });
+  }
+});
+
+document.querySelectorAll('.reset').forEach((item) => {
+  item.addEventListener('change', () => {
+    reset();
+  });
+});
+
+resizeCvs();
 reset();
