@@ -1,12 +1,13 @@
 function init() {
-  physicsInit();
   getInputValues();
+  physicsInit();
 }
 
 function loop() {
   interv = setInterval(function () {
     if (updateSettings) {
       getInputValues();
+      updateSettings = false;
     }
 
     physicsUpdate();
@@ -81,11 +82,11 @@ function exportCoords() {
 }
 
 function toggleControl(e) {
-  if (e.innerText=='hide control') {
-    e.innerText='show control';
-    document.getElementById('control-panel').style.display='none';
+  if (e.innerText == 'hide control') {
+    e.innerText = 'show control';
+    document.getElementById('control-panel').style.display = 'none';
   } else {
-    e.innerText='hide control';
-    document.getElementById('control-panel').style.display='';
+    e.innerText = 'hide control';
+    document.getElementById('control-panel').style.display = '';
   }
 }

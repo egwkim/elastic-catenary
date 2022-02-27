@@ -54,11 +54,5 @@ settingInputs.forEach((item) => {
   }
 });
 
-document.querySelectorAll('.reset').forEach((item) => {
-  item.addEventListener('change', () => {
-    reset();
-  });
-});
-
 resizeCvs();
 reset();
