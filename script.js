@@ -79,3 +79,13 @@ function exportCoords() {
 
   document.body.removeChild(downloadElement);
 }
+
+function toggleControl(e) {
+  if (e.innerText=='hide control') {
+    e.innerText='show control';
+    document.getElementById('control-panel').style.display='none';
+  } else {
+    e.innerText='hide control';
+    document.getElementById('control-panel').style.display='';
+  }
+}

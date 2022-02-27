@@ -7,7 +7,7 @@ const pauseBtn = document.getElementById('pause');
 const resumeBtn = document.getElementById('resume');
 
 function resizeCvs() {
-  canvas.setAttribute('width', window.innerWidth - 420);
+  canvas.setAttribute('width', window.innerWidth - 10);
   canvas.setAttribute('height', window.innerHeight - 10);
 }
 
@@ -15,10 +15,6 @@ window.onresize = resizeCvs;
 
 let points = [];
 let interv = null;
-
-/* TODO Update logic to init settings.
- * Set values through init.js and applie them to html control panel
- */
 
 // Physical constants
 let springConstant = 1;

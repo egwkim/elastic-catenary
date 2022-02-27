@@ -1,5 +1,6 @@
 body {
   margin: 0px;
+  overflow: hidden;
 }
 
 canvas {
@@ -8,7 +9,16 @@ canvas {
   display: block;
 }
 
+#control-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
 #control-panel {
+  position: absolute;
+  top: 40px;
+  right: 10px;
   float: left;
-  margin-top: 10px;
+  background-color: #ffffffaa;
 }
