@@ -1,4 +1,4 @@
-## This project has been moved to the [physics repository](https://github.com/egwkim/Physics/tree/main/elastic-catenary).
+## This project has been moved to the [physics repository](https://github.com/egwkim/physics/tree/main/elastic-catenary).
    
 ## This repository is no longer maintained.
 
@@ -9,7 +9,7 @@
 # elastic-catenary
 Simulate elastic catenary with html5 canvas and javascript
 
-[Github page](https://egwkim.github.io/elastic-catenary/index.html)
+[Github page (physics repository)](https://egwkim.github.io/physics/elastic-catenary/)
 
 
 * * *
